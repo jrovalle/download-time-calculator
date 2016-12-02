@@ -1,0 +1,101 @@
+<ion-view view-title="Download Time Estimator">
+  <ion-content>
+    <div class="list">
+      <div class="item item-divider ">
+        File Size
+      </div>
+      <div class="item row">
+        <!--<label class="item item-input item-floating-label col col-50">
+                <span class="input-label">File Size</span>
+                <input type="text"  placeholder="Put The Filesize">
+          </label>-->
+        <label class="item item-input col col-50">
+        <input type="number"  placeholder="File Size" maxlength="6" style=" font-size: 1.8em;  height: 1.6em; font-weight: bold; text-align: center; padding-right: 0px;">
+      </label>
+        <ion-radio class="col" ng-model="" ng-value="MB">MB</ion-radio>
+        <ion-radio class="col" ng-model="" ng-value="GB">GB</ion-radio>
+        <ion-radio class="col" ng-model="" ng-value="TB">TB</ion-radio>
+      </div>
+      <div class="item item-divider">
+        Percenteage Downloaded
+      </div>
+      <div class="row">
+        <div class="item range range-balanced">
+          <i class="icon ion-ios-bolt-outline"></i>
+          <input type="range" name="volume" min="0" max="100" value="0" ng-model="calcForm.downloadPercent" ng-change="setLevelText()">
+          <i class="icon ion-ios-bolt"></i>
+        </div>
+        <div class="input-label col" style="    text-align: center;
+                                                      vertical-align: middle;
+                                                      line-height: 42px;
+                                                      font-size: 1.5em;
+                                                      font-weight: bold;" id="_label-0">
+          {{calcForm.downloadPercent +'%'}}
+        </div>
+      </div>
+      <div class="item item-divider">
+        Connection Speed
+      </div>
+      <li class="item item-toggle">
+        Gustom Bandwidth
+        <label class="toggle toggle-balanced">
+       <input type="checkbox" ng-model="calcForm.customBandwitdh" ng-init="calcForm.customBandwitdh=False">
+       <div class="track">
+         <div class="handle"></div>
+       </div>
+     </label>
+      </li>
+      <div class="item  item-select" ng-show="!calcForm.customBandwitdh">
+        <div class="input-label">
+          Connection
+        </div>
+        <select name="cnctntype">
+          <option value="56">56K Modem</option>
+           <option value="128">128K Modem</option>
+           <option value="256">256k Modem</option>
+           <option value="512">512k Modem</option>
+        
+          <option value="DSL">connection (1 Mbps)</option>
+          <option value="DSL">connection (1.5 Mbps)</option>
+          <option value="cable">Cable Modem (2 Mbps)</option>
+          <option value="fDSL">connection (3 Mbps)</option>
+          <option value="f2cable">Cable Modem (5 Mbps)</option>
+          <option value="f1DSL">connection (6 Mbps)</option>
+           <option value="f3cable">Cable Modem (10 Mbps)</option>
+          <option value="f2DSL">connection (12 Mbps)</option>
+          <option value="f4cable">Cable Modem (20 Mbps)</option>
+            <option value="f3DSL">connection (25 Mbps)</option>
+          <option value="f5cable">Cable Modem (50 Mbps)</option>
+          <option value="f5cable">Cable Modem (60 Mbps)</option>
+          <option value="f5cable">Cable Modem (80 Mbps)</option>
+          <option value="f5cable">Cable Modem (100 Mbps)</option>
+          <option value="f5cable">Cable Modem (150 Mbps)</option>
+          <option value="f5cable">Cable Modem (200 Mbps)</option>
+          <option value="f5cable">Cable Modem (1Gbps)</option>
+          <option value="f5cable">Cable Modem (3Gbps)</option>
+          <option value="f5cable">Cable Modem (5Gbps)</option>
+      </select>
+      </div>
+      <div ng-show="calcForm.customBandwitdh" class="item item-divider">
+        Custom Speed
+      </div>
+      <div class="item row" ng-show="calcForm.customBandwitdh">
+        <!--<label class="item item-input item-floating-label col col-50">
+                <span class="input-label">File Size</span>
+                <input type="text"  placeholder="Put The Filesize">
+          </label>-->
+        <label class="item item-input col col-50 ">
+        <input type="number" placeholder="Put the Connection Speed" maxlength="12"  style="font-size: 1.05em;
+    height: 3em;">
+      </label>
+        <ion-radio class="col" ng-model="calcForm.bandwidth" ng-value="KB">Kbps</ion-radio>
+        <ion-radio class="col" ng-model="calcForm.bandwidth" ng-value="MB">Mbps</ion-radio>
+
+      </div>
+
+      <button class="button button-block button-positive">Calculate</button>
+    </div>
+
+    </ion-list>
+  </ion-content>
+</ion-view>
