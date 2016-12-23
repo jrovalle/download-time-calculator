@@ -2,7 +2,7 @@
 <widget id="com.ionicframework.downloadtimecalculator823347" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
   <name>download-time-calculator</name>
   <description>
-        An Ionic Framework and Cordova project.
+        Download or Copy time estimator
     </description>
   <author email="you@example.com" href="http://example.com.com/">
       Your Name Here
@@ -25,4 +25,18 @@
   <plugin name="cordova-plugin-splashscreen" spec="~4.0.0"/>
   <plugin name="cordova-plugin-statusbar" spec="~2.2.0"/>
   <plugin name="ionic-plugin-keyboard" spec="~2.2.1"/>
+
+  <platform name="android">
+    <!-- you can use any density that exists in the Android project -->
+    <!--<splash src="resources/screen/android/splash-land-hdpi.png" density="land-hdpi"/>
+    <splash src="resources/screen/android/splash-land-ldpi.png" density="land-ldpi"/>
+    <splash src="resources/screen/android/splash-land-mdpi.png" density="land-mdpi"/>
+    <splash src="resources/screen/android/splash-land-xhdpi.png" density="land-xhdpi"/>-->
+<!--
+    <splash src="res/screen/android/splash-port-hdpi.png" density="port-hdpi"/>
+    <splash src="res/screen/android/splash-port-ldpi.png" density="port-ldpi"/>
+    <splash src="res/screen/android/splash-port-mdpi.png" density="port-mdpi"/>
+    <splash src="res/screen/android/splash-port-xhdpi.png" density="port-xhdpi"/>-->
+</platform>
+<preference name="SplashScreenDelay" value="10000" />
 </widget>
