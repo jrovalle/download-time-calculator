@@ -76,8 +76,23 @@ angular.module('starter', ['ionic', 'starter.controllers'])
             controller: 'PlaylistsCtrl'
           }
         }
+      }).state('app.exit', {
+        url: '/exit',
+        views: {
+          'menuContent': {
+            templateUrl: 'templates/about.html',
+            controller: 'ExitCtrl'
+          }
+        }
+      }).state('app.about', {
+        url: '/about',
+        views: {
+          'menuContent': {
+            templateUrl: 'templates/about.html',
+            controller: 'AboutCtrl'
+          }
+        }
       })
-
       .state('app.single', {
         url: '/playlists/:playlistId',
         views: {

@@ -43,18 +43,18 @@ angular.module('starter.controllers', [])
 
   .controller('PlaylistsCtrl', function ($scope, $ionicPopup) {
     $scope.calcForm = {};
-    $scope.fileSizeType = '3';
+    $scope.fileSizeType = '2';
     $scope.calcForm.customMode = false;
-     $scope.calcForm.bandwidthSpeedType='1';
+    $scope.calcForm.bandwidthSpeedType = '1';
 
-        $scope.update = function (s) {
-          $scope.fileSizeType = s;
-        };
-  $scope.bandwidthSpeedTypeOnChange = function (e){
-     console.log(e);
-         $scope.calcForm.bandwidthSpeedType = e;
+    $scope.update = function (s) {
+      $scope.fileSizeType = s;
+    };
+    $scope.bandwidthSpeedTypeOnChange = function (e) {
+      console.log(e);
+      $scope.calcForm.bandwidthSpeedType = e;
 
-  };
+    };
 
     $scope.calculate = function () {
       if ($scope.calcForm.fileSize == undefined) {
@@ -94,15 +94,15 @@ angular.module('starter.controllers', [])
       // }
 
       truespeed = (FileTransferSpeed * Math.pow(1000, /**/ 1) / 8) * (100 / 100);
-    if($scope.calcForm.customMode){
-        FileTransferSpeed=$scope.calcForm.customSpeedSize;
-       truespeed = (FileTransferSpeed * Math.pow(1000, /**/ parseInt($scope.calcForm.bandwidthSpeedType)) / 8) * (100 / 100);
-    }
+      if ($scope.calcForm.customMode) {
+        FileTransferSpeed = $scope.calcForm.customSpeedSize;
+        truespeed = (FileTransferSpeed * Math.pow(1000, /**/ parseInt($scope.calcForm.bandwidthSpeedType)) / 8) * (100 / 100);
+      }
       truefilesize = FileSize * Math.pow(2, 10 * $scope.fileSizeType /*3*/);
-      if($scope.calcForm.downloadPercent>0){
-        var perceantegeVal= $scope.calcForm.downloadPercent/100;
-    
-        truefilesize =truefilesize-(truefilesize*perceantegeVal);
+      if ($scope.calcForm.downloadPercent > 0) {
+        var perceantegeVal = $scope.calcForm.downloadPercent / 100;
+
+        truefilesize = truefilesize - (truefilesize * perceantegeVal);
       }
 
       // Check to see if caculated values are NAN
@@ -158,9 +158,9 @@ angular.module('starter.controllers', [])
 
 
 
-  $scope.setLevelText = function(){
-   console.log($scope.calcForm.downloadPercent);
-  }
+    $scope.setLevelText = function () {
+      console.log($scope.calcForm.downloadPercent);
+    }
     $scope.showAlert = function (DStr, actualSpeed, downloadSize) {
       var alertPopup = $ionicPopup.alert({
         title: 'Download Results',
@@ -172,4 +172,11 @@ angular.module('starter.controllers', [])
       });
     };
 
+  }).controller('AboutCtrl', function ($scope, $ionicPopup) {
+
+    // alert("ede");
+  }).controller('ExitCtrl', function ($scope, $ionicPopup) {
+    ionic.Platform.exitApp(); // stops the app
+    window.close();
+    // alert("ede");
   });
